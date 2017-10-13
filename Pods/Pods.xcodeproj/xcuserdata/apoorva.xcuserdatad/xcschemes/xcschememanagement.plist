@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>AsyncDisplayKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>NMessenger.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PINCache.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PINRemoteImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-V2_POC_NMessenger.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>133D0E48A931A73273A94351AB1C2BED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1879ED5E4D07889BD22CE9BC52F55342</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2ACB97F0BA0D44EB8B8FB9E838DA1DED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A78E375C69458F502D3B0B1628FFB476</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DDE8929ABCB318C8B10D3E4E7BDFB8CB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
