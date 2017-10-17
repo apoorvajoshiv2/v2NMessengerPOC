@@ -45,5 +45,7 @@
 	<string>$(PRODUCT_NAME) wants to access photos</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) wants to access camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>video</string>
 </dict>
 </plist>

@@ -106,7 +106,8 @@ open class CameraViewController: UIImagePickerController, UIImagePickerControlle
         //check if the camera is available
         if ((UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) && (cameraAuthStatus == AVAuthorizationStatus.authorized)){
             self.sourceType = UIImagePickerControllerSourceType.camera
-            self.showsCameraControls = false
+            self.mediaTypes =  ["public.image", "public.movie"]
+            self.showsCameraControls = true
             self.selection = SelectionType.camera
             self.renderCameraElements()
             
@@ -267,18 +268,31 @@ open class CameraViewController: UIImagePickerController, UIImagePickerControlle
         }
         
         if myImage == nil {
+           
             if let tmpImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
                 myImage = tmpImage
+                //myImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+                /* Correctly flip the mirrored image of front-facing camera */
+                if self.cameraDevice == UIImagePickerControllerCameraDevice.front {
+                    if let im = myImage, let cgImage = im.cgImage {
+                        myImage = UIImage(cgImage: cgImage, scale: im.scale, orientation: UIImageOrientation.leftMirrored)
+                    }
+                }
             } else{
-                print("Something went wrong")
-            }
-            //myImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-            /* Correctly flip the mirrored image of front-facing camera */
-            if self.cameraDevice == UIImagePickerControllerCameraDevice.front {
-                if let im = myImage, let cgImage = im.cgImage {
-                    myImage = UIImage(cgImage: cgImage, scale: im.scale, orientation: UIImageOrientation.leftMirrored)
+                let videoURL = info[UIImagePickerControllerMediaURL]as? NSURL
+                print(videoURL!)
+                do {
+                    let asset = AVURLAsset(url: videoURL as! URL , options: nil)
+                    let imgGenerator = AVAssetImageGenerator(asset: asset)
+                    imgGenerator.appliesPreferredTrackTransform = true
+                    let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
+                    let thumbnail = UIImage(cgImage: cgImage)
+                    myImage = thumbnail
+                } catch let error {
+                    print("*** Error generating thumbnail: \(error.localizedDescription)")
                 }
             }
+            
         }
         cameraDelegate?.pickedImage(myImage)
     }
